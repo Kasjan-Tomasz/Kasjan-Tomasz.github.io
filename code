@@ -1,0 +1,279 @@
+
+
+
+<head>
+
+<p align="center">Time Remaining:</p>
+<p id="tick" align="center">60</p>
+
+<body>
+
+<input type="image" id="img1" src="red.png"  style="width:120px" align="Left" onclick="win_1();randomArray();myFunction();">
+<input type="image" id="img2" src="yellow.png" style="width:120px" align="Right" onclick="win_2();randomArray();myFunction();">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<input type="image" id="img3" src="blue.png" style="width:120px" align="Left" onclick="win_3();randomArray();myFunction();">
+<input type="image" id="img4" src="pink.png" style="width:120px" align="Right" onclick="win_4();randomArray();myFunction();">
+
+
+
+
+
+
+      <p align="center">Score:</p>
+      <p align="center" id="wins">0</p>
+
+
+
+<p style="text-align:center;">
+   <body>
+       <input type="image" id="img" src="start.png" style="width:100px" align="center" onclick="win_0();randomArray();randomArray_2();myFunction();startTimer();displayNextImage();onClick();clock();"/>
+   </body>
+
+</p>
+
+<input type="image" id="img5" src="purple.png" style="width:120px" align="Left" onclick="win_5();randomArray();myFunction();">
+<input type="image" id="img6" src="orange.png" style="width:120px" align="Right" onclick="win_6();randomArray();myFunction();">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<input type="image" id="img7" src="green.png" style="width:120px" align="Left" onclick="win_7();randomArray();myFunction();">
+<input type="image" id="img8" src="black.png" style="width:120px" align="Right" onclick="win_8();randomArray();myFunction();">
+</body>
+</head>
+<script type = "text/javascript">
+var wins = 0
+var losses=0
+
+function randomArray(){
+  var arr = [];
+  while(arr.length < 8){
+    var r = Math.floor(Math.random() * 8) + 1;
+    if(arr.indexOf(r) === -1) arr.push(r);
+
+  }
+  window.GlobalMyArray=arr
+  console.log(arr);
+  return arr
+}
+
+function randomArray_2(){
+  var arr_2 = [];
+  while(arr_2.length < 8){
+    var r_2 = Math.floor(Math.random() * 8) + 1;
+    if(arr_2.indexOf(r_2) === -1) arr_2.push(r_2);
+
+  }
+  window.GlobalMyArray_2=arr_2
+  console.log(arr_2);
+  return arr_2
+}
+
+randomArray()
+randomArray_2()
+
+function onClick(){
+  var time = setInterval(timer, 60000);
+
+
+}
+function clock() {
+     var myTimer = setInterval(myClock, 1000);
+     var c = 60;
+
+     function myClock() {
+       document.getElementById("tick").innerHTML = --c;
+       if (c == 0) {
+         clearInterval(myTimer);
+
+       }
+     }
+   }
+
+
+function timer(){
+  image[0] = "refresh.jpg";
+  image[1] = "refresh.jpg";
+  image[2] = "refresh.jpg";
+  image[3] = "refresh.jpg";
+  image[4] = "refresh.jpg";
+  image[5] = "refresh.jpg";
+  image[6] = "refresh.jpg";
+  image[7] = "refresh.jpg";
+  document.getElementById("img1").src = "white.jpg"
+  document.getElementById("img2").src = "white.jpg"
+  document.getElementById("img3").src = "white.jpg"
+  document.getElementById("img4").src = "white.jpg"
+  document.getElementById("img5").src = "white.jpg"
+  document.getElementById("img6").src = "white.jpg"
+  document.getElementById("img7").src = "white.jpg"
+  document.getElementById("img8").src = "white.jpg"
+  }
+
+
+          function displayNextImage() {
+            var number_2 = GlobalMyArray_2
+              x = (x === image.length-1) ? 0 : x + 1;
+              document.getElementById("img").src = image[number_2[x]-1];
+          }
+
+
+          function startTimer() {
+              setInterval(displayNextImage, 5020);
+          }
+
+          var x = -1; image= []
+          image[0] = "pink.png";
+          image[1] = "red.png";
+          image[2] = "yellow.png";
+          image[3] = "purple.png";
+          image[4] = "orange.png";
+          image[5] = "green.png";
+          image[6] = "black.png";
+          image[7] = "blue.png"
+
+
+
+
+
+
+function myFunction() {
+
+      var number = GlobalMyArray
+      var number_2= GlobalMyArray_2
+      document.getElementById("img").src = image[number_2[x]-1];
+      document.getElementById("img1").src = images[number[0]];
+      document.getElementById("img2").src = images[number[1]];
+      document.getElementById("img3").src = images[number[2]];
+      document.getElementById("img4").src = images[number[3]];
+      document.getElementById("img5").src = images[number[4]];
+      document.getElementById("img6").src = images[number[5]];
+      document.getElementById("img7").src = images[number[6]];
+      document.getElementById("img8").src = images[number[7]];
+
+
+
+
+
+}
+          var images=[]
+          images[1] = "pink.png";
+          images[2] = "red.png";
+          images[3] = "yellow.png";
+          images[4] = "purple.png";
+          images[5] = "orange.png";
+          images[6] = "green.png";
+          images[7] = "black.png";
+          images[8] = "blue.png"
+
+
+function win_0(){
+
+      var nr = GlobalMyArray
+
+      if(x+1===nr[0]){
+        wins=wins
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins}}
+function win_1(){
+
+      var nr = GlobalMyArray
+      var nr_2= GlobalMyArray_2
+      if(nr_2[x]===nr[0]){
+        wins=wins+1
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins
+      }}
+function win_2(){
+
+      var nr = GlobalMyArray
+      var nr_2= GlobalMyArray_2
+      if(nr_2[x]===nr[1]){
+        wins=wins+1
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins
+      }}
+function win_3(){
+
+      var nr = GlobalMyArray
+      var nr_2= GlobalMyArray_2
+      if(nr_2[x]===nr[2]){
+        wins=wins+1
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins
+      }}
+function win_4(){
+
+      var nr = GlobalMyArray
+      var nr_2= GlobalMyArray_2
+      if(nr_2[x]===nr[3]){
+        wins=wins+1
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins
+      }}
+function win_5(){
+
+      var nr = GlobalMyArray
+      var nr_2= GlobalMyArray_2
+      if(nr_2[x]===nr[4]){
+        wins=wins+1
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins
+      }}
+function win_6(){
+
+      var nr = GlobalMyArray
+      var nr_2= GlobalMyArray_2
+      if(nr_2[x]===nr[5]){
+        wins=wins+1
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins
+      }}
+function win_7(){
+
+      var nr = GlobalMyArray
+      var nr_2= GlobalMyArray_2
+      if(nr_2[x]===nr[6]){
+        wins=wins+1
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins
+      }}
+function win_8(){
+
+      var nr = GlobalMyArray
+      var nr_2= GlobalMyArray_2
+      if(nr_2[x]===nr[7]){
+        wins=wins+1
+        document.getElementById('wins').innerHTML= wins
+      }else{
+        wins=wins
+      }}
+
+
+
+
+
+
+</script>
+
+
+
+
+</html>
